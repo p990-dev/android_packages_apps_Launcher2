@@ -156,7 +156,7 @@ public final class PreferencesProvider {
         return getBoolean("ui_general_orientation", def);
     }
 
-    public static boolean getPinchExpanded() {
-        return getBoolean("ui_pinch_expanded", false);
+    public static boolean getFullscreenMode() {
+        return getBoolean("ui_general_fullscreen", false);
     }
 }

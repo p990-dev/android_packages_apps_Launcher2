@@ -33,16 +33,18 @@ public class Preferences extends PreferenceActivity {
 
         addPreferencesFromResource(R.xml.preferences);
 
-        OnPreferenceChangeListener listener = new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                PreferencesProvider.setBoolean(preference.getKey(), (Boolean) newValue);
-                return true;
-            }
-        };
+        findPreference("ui_general_orientation")
+                .setOnPreferenceChangeListener(
+                        new OnPreferenceChangeListener() {
 
-        findPreference("ui_general_orientation").setOnPreferenceChangeListener(listener);
-        findPreference("ui_pinch_expanded").setOnPreferenceChangeListener(listener);
+                            @Override
+                            public boolean onPreferenceChange(
+                                    Preference preference, Object newValue) {
+                                PreferencesProvider.setBoolean(
+                                        preference.getKey(), (Boolean) newValue);
+                                return true;
+                            }
+                        });
     }
 
     @Override
